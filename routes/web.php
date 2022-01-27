@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\GalleryrController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +19,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/home',[LoginController::class,'home'])->name('home');
+Route::get('/reg',[LoginController::class,'reg'])->name('regpost');
+Route::post('/reg',[LoginController::class,'regpost'])->name('reg');
+Route::get('/',[LoginController::class,'login'])->name('login');
+Route::post('/do-login',[LoginController::class,'doLogin'])->name('doLogin');
+Route::get('/logout',[LoginController::class,'logout'])->name('logout');
+
+Route::get('/gallery',[GalleryrController::class,'gallery'])->name('gallery');
+
